@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body class="bg-stone-900 text-stone-100 overflow-x-hidden">
+    <!-- navbar ---------------------------------------------------------------->
+    <nav
+      class="bg-transparent border-b border-stone-500 fixed top-0 w-full z-10"
+    >
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-end md:justify-between mx-auto p-4"
+      >
+        <div class="flex md:order-2 space-x-3 rtl:space-x-reverse">
+          <button
+            type="button"
+            class="text-white bg-stone-700 hover:bg-stone-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-sm text-sm px-4 py-2 text-center"
+          >
+            Github
+          </button>
+          <button
+            type="button"
+            class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-sm text-sm px-4 py-2 text-center"
+          >
+            Télécharger ZIP
+          </button>
+          <button
+            data-collapse-toggle="navbar-cta"
+            type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            aria-controls="navbar-cta"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          id="navbar-cta"
+        >
+          <ul
+            class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg text-white md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0"
+          >
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 md:p-0 text-white bg-orange-600 rounded md:bg-transparent md:text-orange-600 md:dark:text-blue-500"
+                aria-current="page"
+                >Accueil</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600 md:dark:hover:text-blue-500"
+                >Demo</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600 d:dark:hover:text-blue-500"
+                >Projet</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600 md:dark:hover:text-blue-500"
+                >Code</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600 md:dark:hover:text-blue-500"
+                >Unity</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar ---------------------------------------------------------------->
+
+    <!-- hero ---------------------------------------------------------------->
+    <div
+      class="w-full px-6 py-16 mx-auto text-center h-screen grid items-center bg-[url('/bg.jpg')] bg-cover bg-fixed bg-center bg-no-repeat"
+    >
+      <div
+        class="absolute top-0 left-0 backdrop-brightness-[35%] w-full h-full z-0"
+      ></div>
+      <div class="max-w-lg mx-auto relative z-10">
+        <h1 class="text-5xl md:text-[130px] leading-none customfont">wr201</h1>
+        <h1
+          class="font-semibold text-orange-500 lg:text-xl leading-none uppercase"
+        >
+          Pourez-vous vous échapper de la salle ?
+        </h1>
+        <p class="mt-6 text-lg text-stone-300">
+          Voici le rendu de notre projet d'escape-game d'une salle de l'IUT,
+          nous avons choisi la salle 201 avec un style post apocalyptic car
+          c'est bieontôt la fin du monde.
+        </p>
+      </div>
+    </div>
+    <!-- hero ---------------------------------------------------------------->
+    <div class="w-full h-[1000px] grid grid-cols-2 gap-x-8 mx-auto p-4 max-w-screen-xl py-12">
+      <div class="grow sticky top-24 h-20 w-full">
+        <h3 class="md:text-4xl leading-none customfont text-orange-600">lampe torche</h3>
+        <p class="mt-4">Voici notre code qui nous permet de faire fonctionner la lampe nanani nananain faire fonctionner la lampe nanani nananain faire fonctionner la lampe nanani nananain faire fonctionner la lampe nanani nananain </p>
+      </div>
+      <div class="grow h-20 w-full">
+        <pre>
+          using UnityEngine;
+
+          public class CarControl : MonoBehaviour
+          {
+              public float motorTorque = 2000;
+              public float brakeTorque = 2000;
+              public float maxSpeed = 20;
+              public float steeringRange = 30;
+              public float steeringRangeAtMaxSpeed = 10;
+              public float centreOfGravityOffset = -1f;
+
+              WheelControl[] wheels;
+              Rigidbody rigidBody;
+
+              // Start is called before the first frame update
+              void Start()
+              {
+                  rigidBody = GetComponent<Rigidbody>();
+
+                  // Adjust center of mass vertically, to help prevent the car from rolling
+                  rigidBody.centerOfMass += Vector3.up * centreOfGravityOffset;
+
+                  // Find all child GameObjects that have the WheelControl script attached
+                  wheels = GetComponentsInChildren<WheelControl>();
+              }
+
+              // Update is called once per frame
+              void Update()
+              {
+
+                  float vInput = Input.GetAxis("Vertical");
+                  float hInput = Input.GetAxis("Horizontal");
+
+                  // Calculate current speed in relation to the forward direction of the car
+                  // (this returns a negative number when traveling backwards)
+                  float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);
+
+
+                  // Calculate how close the car is to top speed
+                  // as a number from zero to one
+                  float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
+
+                  // Use that to calculate how much torque is available 
+                  // (zero torque at top speed)
+                  float currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
+
+                  // …and to calculate how much to steer 
+                  // (the car steers more gently at top speed)
+                  float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
+
+                  // Check whether the user input is in the same direction 
+                  // as the car's velocity
+                  bool isAccelerating = Mathf.Sign(vInput) == Mathf.Sign(forwardSpeed);
+
+                  foreach (var wheel in wheels)
+                  {
+                      // Apply steering to Wheel colliders that have "Steerable" enabled
+                      if (wheel.steerable)
+                      {
+                          wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
+                      }
+                      
+                      if (isAccelerating)
+                      {
+                          // Apply torque to Wheel colliders that have "Motorized" enabled
+                          if (wheel.motorized)
+                          {
+                              wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
+                          }
+                          wheel.WheelCollider.brakeTorque = 0;
+                      }
+                      else
+                      {
+                          // If the user is trying to go in the opposite direction
+                          // apply brakes to all wheels
+                          wheel.WheelCollider.brakeTorque = Mathf.Abs(vInput) * brakeTorque;
+                          wheel.WheelCollider.motorTorque = 0;
+                      }
+                  }
+              }
+          }
+      </div>
+    </div>
+  </body>
+</html>
