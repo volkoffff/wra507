@@ -6,3 +6,7 @@
 .customfont {
   font-family: myFirstFont;
 }
+
+.orange-text {
+  color: orange;
+}

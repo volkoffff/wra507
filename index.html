@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="style.css" />
     <script src="prism.js"></script>
     <link rel="stylesheet" href="prism.css">
+    <script src="navbar.js" defer></script>
     <title>Document</title>
   </head>
   <body class="bg-stone-900 text-stone-100 overflow-x-hidden">
     <!-- navbar ---------------------------------------------------------------->
     <nav
-      class="bg-transparent border-b border-stone-500 fixed top-0 w-full z-10"
+      class="bg-transparent border-b border-stone-600/80 fixed top-0 w-full z-20 transition-all"
     >
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-end md:justify-between mx-auto p-4"
@@ -69,37 +70,29 @@
           >
             <li>
               <a
-                href="#"
-                class="block py-2 px-3 md:p-0 text-white bg-orange-600 rounded md:bg-transparent md:text-orange-600 md:dark:text-blue-500"
-                aria-current="page"
+                href="#home"
+                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600 text-orange-600"
                 >Accueil</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600 md:dark:hover:text-blue-500"
+                href="#demo"
+                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600"
                 >Demo</a
               >
             </li>
             <li>
               <a
-                href="#"
-                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600 d:dark:hover:text-blue-500"
-                >Projet</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600 md:dark:hover:text-blue-500"
+                href="#code"
+                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600"
                 >Code</a
               >
             </li>
             <li>
               <a
                 href="#"
-                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600 md:dark:hover:text-blue-500"
+                class="block py-2 px-3 md:p-0 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-orange-600"
                 >Unity</a
               >
             </li>
@@ -110,7 +103,7 @@
     <!-- navbar ---------------------------------------------------------------->
 
     <!-- hero ---------------------------------------------------------------->
-    <div
+    <section id="home"
       class="w-full px-6 py-16 mx-auto text-center h-screen grid items-center bg-[url('/bg.jpg')] bg-cover bg-fixed bg-center bg-no-repeat"
     >
       <div
@@ -129,14 +122,23 @@
           c'est bieontôt la fin du monde.
         </p>
       </div>
-    </div>
+    </section>
     <!-- hero ---------------------------------------------------------------->
-    <div class="w-full h-[1000px] grid grid-cols-2 gap-x-8 mx-auto p-4 max-w-screen-xl py-12">
-      <div class="grow sticky top-24 h-20 w-full">
+    <!-- demo ---------------------------------------------------------------->
+    <section id="demo" class="bg-orange-600">
+      <div class="w-full grid grid-cols-1 gap-x-8 mx-auto p-4 max-w-screen-xl py-12">
+        <h3 class="md:text-4xl leading-none customfont mb-4">demo du jeu</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/wvMCbVaJbF4?si=6YZlsLbyVPd0Cc-g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </section>
+    <!-- demo ---------------------------------------------------------------->
+    <section id="code" >
+      <div class="w-full min-h-screen grid grid-cols-2 gap-x-8 mx-auto p-4 max-w-screen-xl py-12">
+      <div class="grow sticky top-24 h-10 w-full">
         <h3 class="md:text-4xl leading-none customfont text-orange-600">lampe torche</h3>
         <p class="mt-4">Voici notre code qui nous permet de faire fonctionner la lampe nanani nananain faire fonctionner la lampe nanani nananain faire fonctionner la lampe nanani nananain faire fonctionner la lampe nanani nananain </p>
       </div>
-      <div class="grow h-20 w-full">
+      <div class="grow w-full">
         <pre>
           <code class="language-clike">
 using UnityEngine;
@@ -223,5 +225,98 @@ public class CarControl : MonoBehaviour
           </code>
       </div>
     </div>
+    <div class="w-full min-h-screen grid grid-cols-2 gap-x-8 mx-auto p-4 max-w-screen-xl py-12">
+      <div class="grow sticky top-24 h-10 w-full">
+        <h3 class="md:text-4xl leading-none customfont text-orange-600">lampe torche</h3>
+        <p class="mt-4">Voici notre code qui nous permet de faire fonctionner la lampe nanani nananain faire fonctionner la lampe nanani nananain faire fonctionner la lampe nanani nananain faire fonctionner la lampe nanani nananain </p>
+      </div>
+      <div class="grow w-full">
+        <pre>
+          <code class="language-clike">
+using UnityEngine;
+
+public class CarControl : MonoBehaviour
+{
+    public float motorTorque = 2000;
+    public float brakeTorque = 2000;
+    public float maxSpeed = 20;
+    public float steeringRange = 30;
+    public float steeringRangeAtMaxSpeed = 10;
+    public float centreOfGravityOffset = -1f;
+
+    WheelControl[] wheels;
+    Rigidbody rigidBody;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+
+        // Adjust center of mass vertically, to help prevent the car from rolling
+        rigidBody.centerOfMass += Vector3.up * centreOfGravityOffset;
+
+        // Find all child GameObjects that have the WheelControl script attached
+        wheels = GetComponentsInChildren<WheelControl>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        float vInput = Input.GetAxis("Vertical");
+        float hInput = Input.GetAxis("Horizontal");
+
+        // Calculate current speed in relation to the forward direction of the car
+        // (this returns a negative number when traveling backwards)
+        float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.velocity);
+
+
+        // Calculate how close the car is to top speed
+        // as a number from zero to one
+        float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
+
+        // Use that to calculate how much torque is available 
+        // (zero torque at top speed)
+        float currentMotorTorque = Mathf.Lerp(motorTorque, 0, speedFactor);
+
+        // …and to calculate how much to steer 
+        // (the car steers more gently at top speed)
+        float currentSteerRange = Mathf.Lerp(steeringRange, steeringRangeAtMaxSpeed, speedFactor);
+
+        // Check whether the user input is in the same direction 
+        // as the car's velocity
+        bool isAccelerating = Mathf.Sign(vInput) == Mathf.Sign(forwardSpeed);
+
+        foreach (var wheel in wheels)
+        {
+            // Apply steering to Wheel colliders that have "Steerable" enabled
+            if (wheel.steerable)
+            {
+                wheel.WheelCollider.steerAngle = hInput * currentSteerRange;
+            }
+            
+            if (isAccelerating)
+            {
+                // Apply torque to Wheel colliders that have "Motorized" enabled
+                if (wheel.motorized)
+                {
+                    wheel.WheelCollider.motorTorque = vInput * currentMotorTorque;
+                }
+                wheel.WheelCollider.brakeTorque = 0;
+            }
+            else
+            {
+                // If the user is trying to go in the opposite direction
+                // apply brakes to all wheels
+                wheel.WheelCollider.brakeTorque = Mathf.Abs(vInput) * brakeTorque;
+                wheel.WheelCollider.motorTorque = 0;
+            }
+        }
+    }
+}
+          </code>
+      </div>
+    </div>
+    </section>
   </body>
 </html>
